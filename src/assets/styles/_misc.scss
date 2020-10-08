@@ -3,11 +3,46 @@
 
 html {
   font-size: $font-size-default;
-  background: $blue-bg;
+  background: #f0f3f8;
   font-family: $font-family-default;
   color: $font-color-default;
+  display: flex;
+  margin: 0;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+body,
+#app {
+  background: $body-color;
+  max-width: 1280px;
+  max-height: 800px;
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  box-shadow: 0px 0px 9px 0px rgba(128, 128, 128, 0.26);
 }
 
 #app {
-  background: $body-color;
+  grid-template-columns: 320px auto;
+}
+
+p {
+  margin: 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  body,
+  #app {
+    max-height: 1024px;
+  }
+}
+
+@media only screen and (max-height: 768px) {
+  body,
+  #app {
+    max-height: 768px;
+  }
 }
