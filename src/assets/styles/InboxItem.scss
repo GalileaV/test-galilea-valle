@@ -4,9 +4,34 @@
   color: #666666;
 }
 
+.read, .pending {
+  background-position: center;
+  transition: background 0.8s;
+}
+
 .pending {
   background-color: #eefaff;
   border-left: solid 3px #03b9ed;
+}
+
+.pending:hover {
+  background: #def5ff radial-gradient(circle, transparent 1%, #def5ff 1%) center/15000%;
+}
+
+.read:hover {
+  background: #f6f6f6 radial-gradient(circle, transparent 1%, #f6f6f6 1%) center/15000%;
+}
+
+.pending:active {
+  background-color: #eefaff;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.read:active {
+  background-color: #ffffff;
+  background-size: 100%;
+  transition: background 0s;
 }
 
 .data-overview {

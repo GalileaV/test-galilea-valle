@@ -2,12 +2,12 @@
   <div id="inbox">
     <div class="inbox-header">
       <div class="row justify-space-between row-1">
-        <div class="row aling-center title">
+        <div class="row align-center title">
           <p>{{ filterTypes[filterTypeSelected].text }}</p>
           <p class="new-mails-count">{{ $mailData.length }}</p>
         </div>
         <div class="dropdown">
-          <div class="row aling-center filter-by-input" @click="selectTrigger">
+          <div class="row align-center filter-by-input" @click="selectTrigger">
             <p>Filter by</p>
             <div class="col filter-arrows">
               <p>{{ "▲" }}</p>

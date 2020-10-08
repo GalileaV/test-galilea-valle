@@ -15,7 +15,7 @@ html {
 
 body,
 #app {
-  background: $body-color;
+  background: $gray;
   max-width: 1280px;
   max-height: 800px;
   display: grid;
@@ -31,6 +31,24 @@ body,
 
 p {
   margin: 0;
+}
+
+button {
+  opacity: 1;
+  transition: opacity ease 0.3s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+svg {
+  opacity: 1;
+  transition: opacity ease 0.3s;
+}
+
+svg:hover {
+  opacity: 0.8;
 }
 
 @media only screen and (max-width: 1024px) {

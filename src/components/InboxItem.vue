@@ -1,7 +1,9 @@
 <template>
   <div
     id="inbox-item"
-    :class="'row justify-space-between' + (!item.isReaded ? ' pending' : '')"
+    :class="
+      'row justify-space-between' + (!item.isReaded ? ' pending' : ' read')
+    "
   >
     <div class="data-overview">
       <p class="from">{{ item.from }}</p>
