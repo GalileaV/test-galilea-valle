@@ -1,0 +1,41 @@
+#mail-viewer {
+  display: grid;
+  grid-template-rows: 55px auto;
+  z-index: 1;
+}
+
+button {
+  border-style: none;
+  border-radius: 2px;
+  padding: 2px 10px;
+  font-size: 0.98rem;
+}
+button:focus {
+  border-style: none;
+  outline: unset;
+}
+
+.mail-nav-bar {
+  padding: 14px 14px 14px 24px;
+  border-bottom: solid 1px #cbcbcb;
+  button:first-child {
+    margin-right: 10px;
+  }
+  .delete-btn {
+    background-color: #fc3401;
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  .spam-btn {
+    background-color: transparent;
+    border: 1px solid #cbcbcb;
+    color: #585858;
+  }
+
+  .unread-btn {
+    background-color: #03b9ed;
+    color: #ffffff;
+    font-weight: bold;
+  }
+}
