@@ -1,0 +1,61 @@
+.inbox-item {
+  padding: 14px;
+  border-bottom: solid 1px $gray-200;
+  color: $gray-700;
+}
+
+.read,
+.pending {
+  background-position: center;
+  transition: background 0.8s;
+}
+
+.pending {
+  background-color: $blue-bg;
+  border-left: solid 3px $blue;
+  .from {
+    color: $blue;
+  }
+}
+
+.spam {
+  opacity: 0.6;
+}
+
+.pending:hover {
+  background: $blue-50 radial-gradient(circle, transparent 1%, $blue-50 1%)
+    center/15000%;
+}
+
+.read:hover {
+  background: $gray-100 radial-gradient(circle, transparent 1%, $gray-100 1%)
+    center/15000%;
+}
+
+.pending:active {
+  background-color: $blue-bg;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.read:active {
+  background-color: $white;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.data-overview {
+  .from {
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+}
+.extras {
+  text-align: right;
+  font-size: 0.9rem;
+  color: $gray-500;
+  .icon {
+    margin-top: 9px;
+  }
+}

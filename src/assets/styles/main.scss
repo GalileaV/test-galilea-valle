@@ -1,3 +1,102 @@
-@import "./colors";
-@import "./variables";
-@import "./misc";
+// Colors
+$red: #fc3401 !default;
+$blue: #03b9ed !default;
+$blue-bg: #eefaff !default;
+$gray: #f4f5f5 !default;
+
+$gray-50: #fafafa !default;
+$gray-100: #f5f5f5 !default;
+$gray-200: #eeeeee !default;
+$gray-300: #e0e0e0 !default;
+$gray-400: #bdbdbd !default;
+$gray-500: #9e9e9e !default;
+$gray-600: #757575 !default;
+$gray-700: #616161 !default;
+$gray-800: #424242 !default;
+$gray-900: #212121 !default;
+
+$blue-50: #e3f2fd !default;
+$blue-100: #bbdefb !default;
+$blue-200: #90caf9 !default;
+$blue-300: #64b5f6 !default;
+$blue-400: #42a5f5 !default;
+
+$white: #ffffff;
+
+//  Body Background Color
+$body-color: $gray-200 !default;
+
+// Font size
+$font-size-mini: 8px !default;
+$font-size-small: 10px !default;
+$font-size-default: 12px !default;
+
+// Font Weight
+$font-weight-lighter: 300 !default;
+$font-weight-base: 400 !default;
+$font-weight-bolder: 500 !default;
+
+// Typography
+$font-family-default: "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
+
+// Font Color
+$font-color-default: #3b3d3f !default;
+
+// Grid
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-stretch {
+  align-items: stretch;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+@import "./sections/_inbox";
+@import "./sections/_inbox_list";
+@import "./sections/_inbox_item";
+@import "./sections/_mail_viewer";
+@import "./sections/_mail_detail";
+@import "./sections/_misc";

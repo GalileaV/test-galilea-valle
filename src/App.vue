@@ -1,15 +1,25 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Inbox />
+    <MailViewer v-if="$store.getters.currentEmail" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Inbox from "./components/Inbox.vue";
+import MailViewer from "./components/MailViewer.vue";
 export default {
   name: "App",
   components: {
-    HelloWorld
+    Inbox,
+    MailViewer
+  },
+  created() {
+    if (this.$store.getters.firstLoad) {
+      this.$store.commit("initializeDataBase");
+      this.$store.commit("setFirstLoadExecuted");
+    }
+    this.$store.commit("initializeMailingInterval");
   }
 };
 </script>
