@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Inbox />
-    <MailViewer />
+    <MailViewer v-if="$store.getters.currentEmail" />
   </div>
 </template>
 
@@ -13,6 +13,13 @@ export default {
   components: {
     Inbox,
     MailViewer
+  },
+  created() {
+    if (this.$store.getters.firstLoad) {
+      this.$store.commit("initializeDataBase");
+      this.$store.commit("setFirstLoadExecuted");
+    }
+    this.$store.commit("initializeMailingInterval");
   }
 };
 </script>

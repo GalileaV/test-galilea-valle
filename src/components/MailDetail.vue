@@ -1,14 +1,20 @@
 <template>
-  <div id="mail-detail">
+  <div
+    id="mail-detail"
+    :class="$store.getters.currentEmail.spam ? 'is-spam' : ''"
+  >
     <div class="grid-item">
-      <p class="from">{{ content.from }}</p>
+      <p class="from">{{ $store.getters.currentEmail.fromName }}</p>
+      <p class="from-email">{{ $store.getters.currentEmail.from }}</p>
     </div>
     <div class="row align-center tags">
       Tags
-      <p class="tag">{{ content.tag }}</p>
+      <p class="tag">{{ $store.getters.currentEmail.tag }}</p>
     </div>
     <div class="mail-body">
-      <p>{{ content.body }}</p>
+      <div class="text">
+        <p>{{ $store.getters.currentEmail.body }}</p>
+      </div>
       <div class="row align-center justify-space-between mail-fotter">
         <AttachIcon />
         <button>Replay</button>
@@ -23,16 +29,6 @@ export default {
   name: "MailDetail",
   components: {
     AttachIcon
-  },
-  props: {
-    content: {
-      type: Object,
-      required: false,
-      default: () => {}
-    }
-  },
-  data() {
-    return {};
   }
 };
 </script>

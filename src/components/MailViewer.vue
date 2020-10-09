@@ -1,13 +1,30 @@
 <template>
   <div id="mail-viewer">
-    <div class="row mail-nav-bar justify-space-between">
+    <div class="row mail-nav-bar justify-space-between align-center">
       <div class="row left-btns">
-        <button class="delete-btn">Delete</button>
-        <button class="spam-btn">Spam</button>
+        <button
+          v-if="!$store.getters.currentEmail.deleted"
+          class="delete-btn"
+          @click="$store.commit('deletedEmail')"
+        >
+          Delete
+        </button>
+        <p v-else class="deleted">Deleted</p>
+        <button
+          v-if="!$store.getters.currentEmail.deleted"
+          :class="
+            'spam-btn' + ($store.getters.currentEmail.spam ? ' is-spam' : '')
+          "
+          @click="$store.commit('setEmailAsSpam')"
+        >
+          Spam
+        </button>
       </div>
-      <button class="unread-btn">Mark as unread</button>
+      <button class="unread-btn" @click="markAsUnread()">
+        Mark as unread
+      </button>
     </div>
-    <MailDetail :content="$mailData[0]" />
+    <MailDetail />
   </div>
 </template>
 
@@ -18,8 +35,10 @@ export default {
   components: {
     MailDetail
   },
-  data() {
-    return {};
+  methods: {
+    markAsUnread() {
+      this.$store.commit("setEmailAsUnread");
+    }
   }
 };
 </script>

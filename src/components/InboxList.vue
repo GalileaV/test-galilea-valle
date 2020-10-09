@@ -1,7 +1,11 @@
 <template>
   <div id="inbox-list">
     <div class="list-container">
-      <InboxItem v-for="element in items" :key="element.id" :item="element" />
+      <InboxItem
+        v-for="element in search != '' ? searchResult : $store.getters[list]"
+        :key="element.id"
+        :item="element"
+      />
     </div>
   </div>
 </template>
@@ -14,13 +18,28 @@ export default {
     InboxItem
   },
   props: {
-    items: {
-      type: Array,
+    list: {
+      type: String,
+      required: true
+    },
+    search: {
+      type: String,
       required: true
     }
   },
-  data() {
-    return {};
+  computed: {
+    searchResult() {
+      if (this.search != "") {
+        return this.$store.getters[this.list].filter(item => {
+          return this.search
+            .toLowerCase()
+            .split(" ")
+            .every(v => item.fromName.toLowerCase().includes(v));
+        });
+      } else {
+        return [];
+      }
+    }
   }
 };
 </script>

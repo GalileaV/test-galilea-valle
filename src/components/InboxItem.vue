@@ -1,17 +1,16 @@
 <template>
   <div
-    id="inbox-item"
-    :class="
-      'row justify-space-between' + (!item.isReaded ? ' pending' : ' read')
-    "
+    :id="item.id + 'inbox-item'"
+    :class="'row justify-space-between inbox-item' + computedClasses(item)"
+    @click="select(item)"
   >
     <div class="data-overview">
-      <p class="from">{{ item.from }}</p>
+      <p class="from">{{ item.fromName }}</p>
       <p class="subject">{{ item.subject }}</p>
     </div>
     <div class="extras">
-      <p class="from">{{ item.date }}</p>
-      <AttachIcon class="icon" />
+      <p class="from">{{ item.time }}</p>
+      <AttachIcon v-if="!item.read" class="icon" />
     </div>
   </div>
 </template>
@@ -29,8 +28,20 @@ export default {
       required: true
     }
   },
-  data() {
-    return {};
+  methods: {
+    select(item) {
+      this.$store.commit("setCurrentEmail", item);
+    },
+    computedClasses(item) {
+      let classes = !item.read ? " pending" : " read";
+      if (item.spam) classes += " spam";
+      if (
+        this.$store.getters.currentEmail &&
+        this.$store.getters.currentEmail.id == item.id
+      )
+        classes += " selected";
+      return classes;
+    }
   }
 };
 </script>

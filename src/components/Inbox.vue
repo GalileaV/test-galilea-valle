@@ -4,7 +4,9 @@
       <div class="row justify-space-between row-1">
         <div class="row align-center title">
           <p>{{ filterTypes[filterTypeSelected].text }}</p>
-          <p class="new-mails-count">{{ $mailData.length }}</p>
+          <p class="new-mails-count">
+            {{ unreadEmails }}
+          </p>
         </div>
         <div class="dropdown">
           <div class="row align-center filter-by-input" @click="selectTrigger">
@@ -16,13 +18,14 @@
           </div>
           <div
             v-show="menuVisible"
+            id="menu"
             :class="'filter-by-menu ' + (menuVisible ? 'grow' : '')"
           >
             <div
-              v-for="type in filterTypes"
+              v-for="(type, index) in filterTypes"
               :key="type.value"
               class="list-item"
-              @click="selectFilter(type.value)"
+              @click="selectFilter(index)"
             >
               {{ type.text }}
             </div>
@@ -31,12 +34,19 @@
       </div>
       <div class="row-2">
         <div class="row justify-space-between search-input">
-          <input v-model="search" type="text" placeholder="Search" />
+          <input
+            v-model="search"
+            type="text"
+            placeholder="Search"
+            :disabled="
+              $store.getters[filterTypes[filterTypeSelected].value].length == 0
+            "
+          />
           <SearchIcon />
         </div>
       </div>
     </div>
-    <InboxList :items="dataItems" />
+    <InboxList :list="dataList" :search="search" />
   </div>
 </template>
 
@@ -54,23 +64,29 @@ export default {
       filterTypeSelected: 0,
       menuVisible: false,
       search: "",
-      dataItems: [],
+      dataList: "inboxEmails",
       filterTypes: [
-        { text: "Inbox", value: 0 },
-        { text: "Spam", value: 1 },
-        { text: "Deleted", value: 2 }
+        { text: "Inbox", value: "inboxEmails" },
+        { text: "Spam", value: "spamEmails" },
+        { text: "Deleted", value: "deletedEmails" }
       ]
     };
   },
-  watch: {
-    filterTypeSelected(val) {
-      console.log(val);
-      this.dataItems = this.$mailData;
+  computed: {
+    unreadEmails() {
+      let count = 0;
+      this.$store.getters[
+        this.filterTypes[this.filterTypeSelected].value
+      ].forEach(element => {
+        if (!element.read) count++;
+      });
+      return count;
     }
   },
-  mounted() {
-    console.log(this.$mailData);
-    this.dataItems = this.$mailData;
+  watch: {
+    filterTypeSelected(val) {
+      this.dataList = this.filterTypes[val].value;
+    }
   },
   methods: {
     selectTrigger() {
