@@ -9,7 +9,7 @@
       <p class="subject">{{ item.subject }}</p>
     </div>
     <div class="extras">
-      <p class="from">{{ item.time }}</p>
+      <p>{{ item.time }}</p>
       <AttachIcon v-if="!item.read" class="icon" />
     </div>
   </div>
@@ -46,6 +46,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "../assets/styles/InboxItem.scss";
-</style>
+<style scoped lang="scss"></style>

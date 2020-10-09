@@ -1,19 +1,20 @@
 .inbox-item {
   padding: 14px;
-  border-bottom: solid 1px #eaeaea;
-  color: #666666;
+  border-bottom: solid 1px $gray-200;
+  color: $gray-700;
 }
 
-.read, .pending {
+.read,
+.pending {
   background-position: center;
   transition: background 0.8s;
 }
 
 .pending {
-  background-color: #eefaff;
-  border-left: solid 3px #03b9ed;
+  background-color: $blue-bg;
+  border-left: solid 3px $blue;
   .from {
-    color: #03b9ed;
+    color: $blue;
   }
 }
 
@@ -22,21 +23,23 @@
 }
 
 .pending:hover {
-  background: #def5ff radial-gradient(circle, transparent 1%, #def5ff 1%) center/15000%;
+  background: $blue-50 radial-gradient(circle, transparent 1%, $blue-50 1%)
+    center/15000%;
 }
 
 .read:hover {
-  background: #f6f6f6 radial-gradient(circle, transparent 1%, #f6f6f6 1%) center/15000%;
+  background: $gray-100 radial-gradient(circle, transparent 1%, $gray-100 1%)
+    center/15000%;
 }
 
 .pending:active {
-  background-color: #eefaff;
+  background-color: $blue-bg;
   background-size: 100%;
   transition: background 0s;
 }
 
 .read:active {
-  background-color: #ffffff;
+  background-color: $white;
   background-size: 100%;
   transition: background 0s;
 }
@@ -51,7 +54,7 @@
 .extras {
   text-align: right;
   font-size: 0.9rem;
-  color: #a4a4a4;
+  color: $gray-500;
   .icon {
     margin-top: 9px;
   }

@@ -17,37 +17,37 @@ button:focus {
 
 .mail-nav-bar {
   padding: 14px 14px 14px 24px;
-  border-bottom: solid 1px #cbcbcb;
+  border-bottom: solid 1px $gray-300;
   button:first-child {
     margin-right: 10px;
   }
   .delete-btn {
-    background-color: #fc3401;
-    color: #ffffff;
+    background-color: $red;
+    color: $white;
     font-weight: bold;
   }
 
   .deleted {
     font-size: 1.1rem;
     font-weight: bold;
-    color: #fc3401;
+    color: $red;
     align-self: center;
     margin-right: 10px;
   }
 
   .spam-btn {
     background-color: transparent;
-    border: 1px solid #cbcbcb;
-    color: #585858;
+    border: 1px solid $gray-400;
+    color: $gray-700;
   }
 
   .is-spam {
-    background-color: #c8c8c8;
+    background-color: $gray-400;
   }
 
   .unread-btn {
-    background-color: #03b9ed;
-    color: #ffffff;
+    background-color: $blue;
+    color: $white;
     font-weight: bold;
   }
 }

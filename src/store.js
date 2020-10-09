@@ -37,7 +37,7 @@ export default new Vuex.Store({
     },
     initializeMailingInterval(state) {
       let mailingInterval = setInterval(() => {
-        if (state.currentOffset <= mailData.length - 3) {
+        if (state.currentOffset <= mailData.length - 2) {
           state.inboxEmails = [
             ...mailData.slice(state.currentOffset, state.currentOffset + 2),
             ...state.inboxEmails

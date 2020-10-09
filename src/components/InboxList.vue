@@ -44,6 +44,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "../assets/styles/InboxList.scss";
-</style>
+<style scoped lang="scss"></style>
