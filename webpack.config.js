@@ -26,8 +26,8 @@ module.exports = {
     ]
   },
   devServer: {
-    // open: true,
-    // hot: true,
+    open: true,
+    hot: true,
     quiet: true
   },
   plugins: [
