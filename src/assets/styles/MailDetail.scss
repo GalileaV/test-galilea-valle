@@ -11,8 +11,17 @@
   align-content: center;
 }
 
+.is-spam {
+  opacity: 0.6;
+  cursor: default;
+}
+
 .from {
   font-size: 1.4rem;
+}
+
+.from-email {
+  font-size: 0.9rem;
 }
 
 .tags {
@@ -35,13 +44,17 @@
   grid-template-rows: auto 35px;
   background-color: #ffffff;
   min-height: 300px;
-  height: max-content;
+  max-height: 70%;
   border-radius: 4px;
   box-shadow: 0px 0px 8px 1px rgba(128, 128, 128, 0.24);
-  p {
+  .text {
     padding: 20px;
-    font-size: 1.25rem;
-    line-height: 20px;
+    overflow: hidden;
+    overflow-y: scroll;
+    p {
+      font-size: 1.25rem;
+      line-height: 20px;
+    }
   }
 
   .mail-fotter {

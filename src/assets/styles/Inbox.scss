@@ -118,5 +118,10 @@
       border-style: none;
       outline: unset;
     }
+
+    input:disabled {
+      background-color: #fafafa;
+      opacity: 0.5;
+    }
   }
 }
